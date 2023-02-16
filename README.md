@@ -8,6 +8,11 @@
 
 ## Data
 
+| Column Name | Data Type   | Description |
+| ----------- | ----------- | ----------- |
+| Header      | Title       | ----------- |
+| Paragraph   | Text        | ----------- |
+
 ## Figures 
 
 ## References
