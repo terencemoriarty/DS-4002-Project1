@@ -10,8 +10,18 @@
 
 | Column Name | Data Type   | Description |
 | ----------- | ----------- | ----------- |
-| Header      | Title       | ----------- |
-| Paragraph   | Text        | ----------- |
+| artist      | String      | This column contains a string of the name of the
+artist of the song. In this data set, all values in this
+column are “Taylor Swift”. |
+| album       | String      | This column contains a string of the name of the
+album the song lyrics are from. This has six unique
+values, which include: “Taylor Swift”, “Fearless”
+“Speak Now”, “Red”, “1989”, and “Reputation”. |
+| track_title | String      | ----------- |
+| track_n     | Integer     | ----------- |
+| lyrics      | String      | ----------- |
+| line        | Integer     | ----------- |
+| year        | Integer     | ----------- |
 
 ## Figures 
 
