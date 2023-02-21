@@ -1,0 +1,68 @@
+---
+title: "MI2_Data_Exploration"
+author: "Noah McIntire (nem2pq)"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+
+```
+
+ 
+```{r cars}
+df <- read.csv('taylor_swift_lyrics.csv')
+head(df)
+```
+Might want to Capitalize everything
+```{r}
+country <- c(' truck', ' tractor', ' beer', ' jean', ' car', ' guitar')
+romance <- c(' love', ' heart', ' kiss', ' leave', ' stay')
+song_names<-unique(df$track_title)
+#song_names
+
+by_song <- function(df){
+  song <- data.frame(song_name=unique(df$track_title), lyrics=character(94),stringsAsFactors=FALSE)
+  song_names<-unique(df$track_title)
+  for (x in 1:94){
+    for (y in 1:nrow(df)){
+      if (song$song_name[x] == df$track_title[y]){
+        song$lyrics[x] <- paste(song$lyrics[x], df$lyric[y]) 
+      }
+    }
+  }
+  song
+}
+df1<- by_song(df)
+
+split = strsplit(df1$lyrics, " ")
+df1$total_lyrics <- sapply(split, lengths)
+df1
+#str(df1)
+
+
+# gregexpr(" truck", df1$lyrics, ignore.case = TRUE)
+lyric_count<- function(df, lyrics){
+  df$total_count <- integer(94)
+  for (x in 1:length(lyrics)){
+    df$new_col <- str_count(df1$lyrics, regex(lyrics[x],  ignore_case = TRUE))
+    df$total_count <- df$total_count + df$new_col
+    colnames(df)[4+x] <- paste(lyrics[x], "count", sep =" ")
+  }
+  df$percentage <- df$total_count / df$total_lyrics * 100
+  
+  df
+}
+
+df2 <- lyric_count(df1, romance)
+df2
+
+
+```
+
+
+
