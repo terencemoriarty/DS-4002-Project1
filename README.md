@@ -35,3 +35,4 @@ There are several significant notes about our dataset. Firstly, it is important 
 ## Figures 
 
 ## References
+Our reasoning for choosing our country words can be found [here](https://www.reddit.com/r/country/comments/kvrbj0/analyzing_the_lyrics_of_14500_country_songs/).
