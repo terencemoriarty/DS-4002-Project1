@@ -3,7 +3,7 @@ library(readxl)
 library(dplyr)
 library(stringr)
 songdata = read.csv("../DATA/taylor_swift_lyrics.csv")
-View(songdata)
+#View(songdata)
 
 #Look up engrams.?
 #Find percentage of country and romance words for each song
@@ -14,6 +14,8 @@ View(songdata)
 #Group of country and romance words we want to assess, work in progress
 country = c("Truck", "Tractor", "Beer", "Jean", "Whiskey", "Guitar")
 romance = c("Love", "Heart", "Kiss", "Stay", "Leave")
+country2 = "\\bjust\\b|\\bknow\\b|\\bain't\\b|\\byeah\\b|\\bback\\b|\\btime\\b|\\bnever\\b|\\bgonna\\b|\\bbaby\\b|\\blittle\\b|\\bgood\\b|\\bnight\\b|\\bgirl|\\bright\\b|\\bhear|\\bwanna\\b|\\bold\\b|\\blong\\b|\\bwant|\\bstill\\b|\\bcause\\b|\\bman\\b|\\bhome\\b|\\baway\\b|\\bday|\\blife\\b|\\bneed|\\bthink|\\bfeel"
+romance2 = "\\blove\\b|\\bheart\\b|\\bkiss\\b|\\bleave\\b|\\bstay\\b|\\bforever\\b|\\bsweet\\b|\\balways\\b"
 
 #each_song = group_by(songdata, songdata$track_title)
 
@@ -30,7 +32,7 @@ by_song <- function(songdata){
   song
 }
 songdata1<- by_song(songdata)
-View(songdata1)
+#View(songdata1)
 
 
 #Finds total word count for each song
@@ -49,15 +51,9 @@ songdata1%>%
 #Counts every use of the word "truck" in each song
 lengths(gregexpr(" truck", songdata1$lyrics, ignore.case = TRUE))
 lengths(gregexpr(" heart", songdata1$lyrics, ignore.case = TRUE))
-str_count(songdata1$lyrics, regex("\\btruck|\\bTruck"))
-str_count(songdata1$lyrics, regex("\\btractor\\b"))
-str_count(songdata1$lyrics, regex("\\bTractor\\b"))
-str_count(songdata1$lyrics, regex("\\bbeer"))
-str_count(songdata1$lyrics, regex("\\bBeer"))
-str_count(songdata1$lyrics, regex("\\bjean"))
-str_count(songdata1$lyrics, regex("\\bJean"))
-str_count(songdata1$lyrics, regex("\\bheart|\\bHeart|\\blove|\\bLove"))
-str_count(songdata1$lyrics, regex("\\bHeart"))
+str_count(songdata1$lyrics, regex(country2))
+
+
 
 
 
