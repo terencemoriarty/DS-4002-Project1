@@ -15,7 +15,7 @@ songdata = read.csv("../DATA/taylor_swift_lyrics.csv")
 country = c("Truck", "Tractor", "Beer", "Jean", "Whiskey", "Guitar")
 romance = c("Love", "Heart", "Kiss", "Stay", "Leave")
 country2 = "\\bjust\\b|\\bknow\\b|\\bain't\\b|\\byeah\\b|\\bback\\b|\\btime\\b|\\bnever\\b|\\bgonna\\b|\\bbaby\\b|\\blittle\\b|\\bgood\\b|\\bnight\\b|\\bgirl|\\bright\\b|\\bhear|\\bwanna\\b|\\bold\\b|\\blong\\b|\\bwant|\\bstill\\b|\\bcause\\b|\\bman\\b|\\bhome\\b|\\baway\\b|\\bday|\\blife\\b|\\bneed|\\bthink|\\bfeel"
-romance2 = "\\blove\\b|\\bheart\\b|\\bkiss\\b|\\bleave\\b|\\bstay\\b|\\bforever\\b|\\bsweet\\b|\\balways\\b"
+romance2 = "\\bkiss|\\blov|\\bheart|\\bhand|\\bhug|\\bboyfriend\\b|\\bgirlfriend\\b|\\bbaby\\b|\\bhold\\b|\\bgirl|\\bboy|\\bman\\b|\\bstay|\\bleav|\\blife\\b|\\bdream|\\bliv"
 
 #each_song = group_by(songdata, songdata$track_title)
 
@@ -51,11 +51,9 @@ songdata1%>%
 #Counts every use of the word "truck" in each song
 lengths(gregexpr(" truck", songdata1$lyrics, ignore.case = TRUE))
 lengths(gregexpr(" heart", songdata1$lyrics, ignore.case = TRUE))
-str_count(songdata1$lyrics, regex(country2))
-
-
-
-
-
-
-
+country_count <- str_count(songdata1$lyrics, regex(country2))
+romance_count <- str_count(songdata1$lyrics, regex(romance2))
+plot(romance_count/country_count)
+index = c(1:94)
+abline(lm(romance_count/country_count~index))
+lm(romance_count/country_count~index)
