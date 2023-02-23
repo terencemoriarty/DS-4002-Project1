@@ -13,7 +13,8 @@ View(songdata)
 #Group of country and romance words we want to assess, work in progress
 country = c("Truck", "Tractor", "Beer", "Jean", "Whiskey", "Guitar")
 romance = c("Love", "Heart", "Kiss", "Stay", "Leave")
-country2 = "\\bjust\\b|\\bknow\\b|\\blove\\b|\\bain't\\b|\\byeah\\b|\\bback\\b|\\btime\\b|\\bnever\\b|\\bgonna\\b|\\bbaby\\b|\\blittle\\b|\\bgood\\b|\\bnight\\b|\\bgirl\\b|\\bright\\b|\\bhear\\b|\\bwanna\\b|\\bold\\b|\\blong\\b|\\bwant\\b|\\bstill\\b|\\bcause\\b|\\bman\\b|\\bhome\\b|\\baway\\b|\\bday\\b|\\blife\\b|\\bneed\\b|\\bthink\\b|\\bfeel\\b"
+country2 = "\\bjust\\b|\\bknow\\b|\\bain't\\b|\\byeah\\b|\\bback\\b|\\btime\\b|\\bnever\\b|\\bgonna\\b|\\bbaby\\b|\\blittle\\b|\\bgood\\b|\\bnight\\b|\\bgirl|\\bright\\b|\\bhear|\\bwanna\\b|\\bold\\b|\\blong\\b|\\bwant|\\bstill\\b|\\bcause\\b|\\bman\\b|\\bhome\\b|\\baway\\b|\\bday|\\blife\\b|\\bneed|\\bthink|\\bfeel"
+romance2 = "\\bkiss|\\blov|\\bheart|\\bhand|\\bhug|\\bboyfriend\\b|\\bgirlfriend\\b|\\bbaby\\b|\\bhold\\b|\\bgirl|\\bboy|\\bman\\b|\\bstay|\\bleav|\\blife\\b|\\bdream|\\bliv"
 
 #each_song = group_by(songdata, songdata$track_title)
 
@@ -52,3 +53,4 @@ gregexpr(" truck", songdata1$lyrics, ignore.case = TRUE)
 library(stringr)
 str_count(songdata1$lyrics, regex("\\btruck\\b|\\bjeans\\b|\\btractor\\b|\\bbeer\\b|\\bcar\\b|\\bguitar\\b"))
 str_count(songdata1$lyrics, regex(country2))
+str_count(songdata1$lyrics, regex(romance2))
