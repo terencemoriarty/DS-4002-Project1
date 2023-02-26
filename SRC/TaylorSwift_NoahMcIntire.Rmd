@@ -10,7 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(dplyr)
 library(tidyverse)
-
+library(readr)
+library(readxl)
+library(stringr)
 ```
 
  
@@ -18,51 +20,109 @@ library(tidyverse)
 df <- read.csv('taylor_swift_lyrics.csv')
 head(df)
 ```
-Might want to Capitalize everything
-```{r}
-country <- c(' truck', ' tractor', ' beer', ' jean', ' car', ' guitar')
-romance <- c(' love', ' heart', ' kiss', ' leave', ' stay')
-song_names<-unique(df$track_title)
-#song_names
 
-by_song <- function(df){
-  song <- data.frame(song_name=unique(df$track_title), lyrics=character(94),stringsAsFactors=FALSE)
-  song_names<-unique(df$track_title)
+# by song
+```{r}
+songdata = read.csv("taylor_swift_lyrics.csv")
+View(songdata)
+
+#Group of country and romance words we want to assess
+country = "\\bjust\\b|\\bknow\\b|\\bain't\\b|\\byeah\\b|\\bback\\b|\\btime\\b|\\bnever\\b|\\bgonna\\b|\\bbaby\\b|\\blittle\\b|\\bgood\\b|\\bnight\\b|\\bgirl|\\bright\\b|\\bhear|\\bwanna\\b|\\bold\\b|\\blong\\b|\\bwant|\\bstill\\b|\\bcause\\b|\\bman\\b|\\bhome\\b|\\baway\\b|\\bday|\\blife\\b|\\bneed|\\bthink|\\bfeel"
+romance = "\\bkiss|\\blov|\\bheart|\\bhand|\\bhug|\\bboyfriend\\b|\\bgirlfriend\\b|\\bbaby\\b|\\bhold\\b|\\bgirl|\\bboy|\\bman\\b|\\bstay|\\bleav|\\blife\\b|\\bdream|\\bliv|\\break|\\bex-|\\btreat|\\bflower|\\bdanc|\\bnew\\b|\\bchang|\\beye|\\bhop|\\bthink|\\bfeel"
+
+
+by_song <- function(songdata){
+  song <- data.frame(song_name=unique(songdata$track_title), lyrics=character(94),stringsAsFactors=FALSE)
+  song_names<-unique(songdata$track_title)
   for (x in 1:94){
-    for (y in 1:nrow(df)){
-      if (song$song_name[x] == df$track_title[y]){
-        song$lyrics[x] <- paste(song$lyrics[x], df$lyric[y]) 
+    for (y in 1:nrow(songdata)){
+      if (song$song_name[x] == songdata$track_title[y]){
+        song$lyrics[x] <- paste(song$lyrics[x], songdata$lyric[y]) 
+      }
+    }
+    for (x in 1:14){
+      song$year[x] <- "2006"
+    }
+    for (x in 15:94){
+      song$year[x] <- "2008"
+    }
+  }
+  song
+}
+
+songdata1 <-  by_song(songdata)
+#Finds total word count for each song
+songdata1%>%
+ group_by(songdata1$lyrics)%>%
+  mutate(count = row_number())
+
+split = strsplit(songdata1$lyrics, " ")
+sapply(split, length)
+
+#Find percentage of country and romance words for each song
+songdata1%>%
+  group_by(songdata1$lyrics)
+
+#View(songdata1)
+
+
+country_count <- str_count(songdata1$lyrics, regex(country))
+romance_count <- str_count(songdata1$lyrics, regex(romance))
+
+songdata2 <- songdata %>% distinct(track_title, .keep_all = TRUE)
+years_2 = songdata2$year
+
+plot(romance_count/country_count~years_2, main= "Romance to Country Word Ratio in Taylor Swift Lyrics", xlab="Year Released", ylab="Ratio of Romance to Country Words")
+abline(lm(romance_count/country_count~years_2))
+lm(romance_count/country_count~years_2)
+
+#ggplot((romance_count/country_count~years_2)). + geom_point()
+
+#view((romance_count/country_count~years_2))
+```
+
+
+This is by album
+```{r}
+songdata = read.csv("taylor_swift_lyrics.csv")
+View(songdata)
+
+by_album <- function(songdata){
+  song <- data.frame(album_name=unique(songdata$album), lyrics=character(6),stringsAsFactors=FALSE)
+  song_names<-unique(songdata$track_title)
+  for (x in 1:6){
+    for (y in 1:nrow(songdata)){
+      if (song$album[x] == songdata$album[y]){
+        song$lyrics[x] <- paste(song$lyrics[x], songdata$lyric[y]) 
       }
     }
   }
   song
 }
-df1<- by_song(df)
-
-split = strsplit(df1$lyrics, " ")
-df1$total_lyrics <- sapply(split, lengths)
-df1
-#str(df1)
 
 
-# gregexpr(" truck", df1$lyrics, ignore.case = TRUE)
-lyric_count<- function(df, lyrics){
-  df$total_count <- integer(94)
-  for (x in 1:length(lyrics)){
-    df$new_col <- str_count(df1$lyrics, regex(lyrics[x],  ignore_case = TRUE))
-    df$total_count <- df$total_count + df$new_col
-    colnames(df)[4+x] <- paste(lyrics[x], "count", sep =" ")
-  }
-  df$percentage <- df$total_count / df$total_lyrics * 100
-  
-  df
-}
+songdata1 <-  by_album(songdata)
+#Finds total word count for each song
+songdata1%>%
+ group_by(songdata1$lyrics)%>%
+  mutate(count = row_number())
 
-df2 <- lyric_count(df1, romance)
-df2
+split = strsplit(songdata1$lyrics, " ")
+sapply(split, length)
 
+#Find percentage of country and romance words for each song
+songdata1%>%
+  group_by(songdata1$lyrics)
+#View(songdata1)
+country_count <- str_count(songdata1$lyrics, regex(country))
+romance_count <- str_count(songdata1$lyrics, regex(romance))
+
+songdata2 <- songdata %>% distinct(album, .keep_all = TRUE)
+years_2 = songdata2$year
+
+plot(romance_count/country_count~years_2, main= "Romance to Country Word Ratio in Taylor Swift Lyrics", xlab="Year Released", ylab="Ratio of Romance to Country Words")
+abline(lm(romance_count/country_count~years_2))
+lm(romance_count/country_count~years_2)
 
 ```
-
-
 
