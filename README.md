@@ -36,3 +36,7 @@ There are several significant notes about our dataset. Firstly, it is important 
 
 ## References
 Our reasoning for choosing our country words can be found [here](https://www.reddit.com/r/country/comments/kvrbj0/analyzing_the_lyrics_of_14500_country_songs/).
+
+[1] Vimal, Tarun, “Taylor Swift Song Lyrics from all the albums,” Kaggle.com, CC BY-SA 4.0, 2018. [Online]. Available: https://www.kaggle.com/datasets/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums. [Accessed February 14, 2023].
+
+[2] Reddit User davidut2023, "Analyzing the lyrics of 14,500 Country songs," Reddit: https://www.reddit.com/r/country/comments/kvrbj0/analyzing_the_lyrics_of_14500_country_songs/, January 12, 20221. [Accessed February 21, 2023].
