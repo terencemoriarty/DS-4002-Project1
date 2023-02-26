@@ -6,7 +6,11 @@ This repository includes all of the necessary files related to the first DS 4002
 
 ## SRC
 
+We pulled the source data from Kaggle. It includes all of Taylor Swift's songs released during the time frame 2006-2017. It also includes the lyrics, song name, album name, and year of release.
+
 ### Installing/Building Code
+
+We downloaded the data as a .csv file and cleaned it for use in R.
 
 ### Using Code
 
