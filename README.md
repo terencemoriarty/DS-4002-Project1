@@ -36,7 +36,7 @@ There are several significant notes about our dataset. Firstly, it is important 
 
 | Figure      | Description | Takeaways   |
 | ----------- | ----------- | ----------- |
-| artist      | String      | This column contains a string of the name of the artist of the song. In this data set, all values in this column are “Taylor Swift”. |
+| Romance:CountryRatioGraph.png| This graph has each Taylor Swift song plotted with the year of release on the x-axis and it's romance-to-country ratio on the y-axis. It also includes a line of best fit.| The line of best fit having a positive slope confirms our hypothesis that the lyrics of Taylor Swift's songs have shifted from being more aligned with the country theme to more aligned with the romance theme. |
 
 ## References
 Our reasoning for choosing our country words can be found [here](https://www.reddit.com/r/country/comments/kvrbj0/analyzing_the_lyrics_of_14500_country_songs/).
