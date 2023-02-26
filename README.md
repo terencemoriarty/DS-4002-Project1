@@ -26,7 +26,7 @@ This repository includes all of the necessary files related to the first DS 4002
 
 #### Link to Data
 
-Our dataset can be found [here](https://www.kaggle.com/datasets/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums).
+Our dataset can be found [here](https://www.kaggle.com/datasets/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) [1].
 
 #### Relevant Notes About Data
 
@@ -34,9 +34,13 @@ There are several significant notes about our dataset. Firstly, it is important 
 
 ## Figures 
 
+| Figure      | Description | Takeaways   |
+| ----------- | ----------- | ----------- |
+| artist      | String      | This column contains a string of the name of the artist of the song. In this data set, all values in this column are “Taylor Swift”. |
+
 ## References
 Our reasoning for choosing our country words can be found [here](https://www.reddit.com/r/country/comments/kvrbj0/analyzing_the_lyrics_of_14500_country_songs/).
 
 [1] Vimal, Tarun, “Taylor Swift Song Lyrics from all the albums,” Kaggle.com, CC BY-SA 4.0, 2018. [Online]. Available: https://www.kaggle.com/datasets/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums. [Accessed February 14, 2023].
 
-[2] Reddit User davidut2023, "Analyzing the lyrics of 14,500 Country songs," Reddit: https://www.reddit.com/r/country/comments/kvrbj0/analyzing_the_lyrics_of_14500_country_songs/, January 12, 20221. [Accessed February 21, 2023].
+[2] Reddit User davidut2023, "Analyzing the lyrics of 14,500 Country songs," Reddit: https://www.reddit.com/r/country/comments/kvrbj0/analyzing_the_lyrics_of_14500_country_songs/, January 12, 2021. [Accessed February 21, 2023].
