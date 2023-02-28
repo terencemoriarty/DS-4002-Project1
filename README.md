@@ -43,7 +43,7 @@ There are several significant notes about our dataset. Firstly, it is important 
 | Figure      | Description | Takeaways   |
 | ----------- | ----------- | ----------- |
 | Romance:CountryRatioGraph.png| This graph has each Taylor Swift song plotted with the year of release on the x-axis and it's romance-to-country ratio on the y-axis. It also includes a line of best fit.| The line of best fit having a positive slope confirms our hypothesis that the lyrics of Taylor Swift's songs have shifted from being more aligned with the country theme to more aligned with the romance theme. |
-| figure name |  This graph has each Taylor Swift album plotted with the year of release on the x-axis and it's romance-to-country ratio on the y-axis. It also includes a line of best fit. | The line of best fit having a positive slope confirms our hypothesis that the lyrics of Taylor Swift's songs have shifted from being more aligned with the country theme to more aligned with the romance theme. |
+| album.Romance:Country.png |  This graph has each Taylor Swift album plotted with the year of release on the x-axis and it's romance-to-country ratio on the y-axis. It also includes a line of best fit. | The line of best fit having a positive slope confirms our hypothesis that the lyrics of Taylor Swift's songs have shifted from being more aligned with the country theme to more aligned with the romance theme. |
 
 ## References
 
