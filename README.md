@@ -10,9 +10,11 @@ We pulled the source data from Kaggle. It includes all of Taylor Swift's songs r
 
 ### Installing/Building Code
 
-We downloaded the data as a .csv file and cleaned it for use in R.
+We downloaded the data as a .csv file and cleaned it for use in R. Make sure the data is available and accessible in the same working directory as the file, and make any neccessary changes to the file path in order for the dataset to be loaded into RStudio on your device.
 
 ### Using Code
+
+This code can be used by opening each .R or .Rmd file within RStudio, version 2022.12.
 
 ## Data
 
@@ -41,6 +43,7 @@ There are several significant notes about our dataset. Firstly, it is important 
 | Figure      | Description | Takeaways   |
 | ----------- | ----------- | ----------- |
 | Romance:CountryRatioGraph.png| This graph has each Taylor Swift song plotted with the year of release on the x-axis and it's romance-to-country ratio on the y-axis. It also includes a line of best fit.| The line of best fit having a positive slope confirms our hypothesis that the lyrics of Taylor Swift's songs have shifted from being more aligned with the country theme to more aligned with the romance theme. |
+| figure name |  This graph has each Taylor Swift album plotted with the year of release on the x-axis and it's romance-to-country ratio on the y-axis. It also includes a line of best fit. | The line of best fit having a positive slope confirms our hypothesis that the lyrics of Taylor Swift's songs have shifted from being more aligned with the country theme to more aligned with the romance theme. |
 
 ## References
 
